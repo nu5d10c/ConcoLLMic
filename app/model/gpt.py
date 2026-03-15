@@ -289,7 +289,7 @@ class Gpt_o1mini(OpenaiModel):
 class Gpt4o_20241120(OpenaiModel):
     def __init__(self):
         super().__init__(
-            "gpt-4o-2024-11-20", 16384, 0.0000025, 0.000010, parallel_tool_call=True
+            "gpt-4o", 16384, 0.0000025, 0.000010, parallel_tool_call=True
         )
         self.note = "Multimodal model."
 
