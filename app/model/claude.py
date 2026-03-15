@@ -127,7 +127,6 @@ class AnthropicModel(Model):
                     messages=messages,
                     temperature=temperature,
                     max_tokens=self.max_output_token,
-                    top_p=top_p,
                     stream=False,
                     tools=tools,
                     **kwargs,
