@@ -35,6 +35,8 @@ RETRY_MULTIPLIER = 2
 # Global counter for total retry attempts
 TOTAL_RETRY_ATTEMPTS = 0
 
+litellm.drop_params = True
+
 
 def get_total_retry_attempts():
     global TOTAL_RETRY_ATTEMPTS
