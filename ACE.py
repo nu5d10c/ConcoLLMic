@@ -148,7 +148,7 @@ def signal_handler(signum, frame, log_file_path: str):
 def setup_model():
     """Setup and initialize model"""
     register_all_models()
-    set_model("litellm-generic-deepseek/deepseek-reasoner")
+    set_model("litellm-generic-deepseek-r1")
 
 
 def initialize_settings(log_dir: str = LOG_DIR):
