@@ -190,7 +190,6 @@ class MessageThread:
         json_tools = []
         for tool in tools:
             this_tool_dict = {}
-            this_tool_dict["id"] = tool.id
             this_tool_dict["type"] = tool.type
             # now serialize function as well
             func_obj: OpenaiFunction = tool.function
