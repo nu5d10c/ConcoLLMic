@@ -274,3 +274,14 @@ class Claude4_5Sonnet(AnthropicModel):
             max_output_token=max_output_token,
         )
         self.note = "Latest and most intelligent model from Anthropic (Claude 4.5) with (maximum) 64k output token limit"
+
+class Claude4_6Opus(AnthropicModel):
+    def __init__(self, max_output_token: int = 8192):
+        super().__init__(
+            "claude-opus-4-6",
+            0.000015,
+            0.000075,
+            parallel_tool_call=True,
+            max_output_token=max_output_token,
+        )
+        self.note = "Latest and most powerful model from Anthropic (Claude 4.6) with (maximum) 64k output token limit"
