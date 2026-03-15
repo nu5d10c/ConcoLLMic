@@ -93,13 +93,11 @@ class OpenaiModel(Model):
     def extract_resp_func_calls(
         self,
         chat_completion_message: ChatCompletionMessage,
-    ) -> list[FunctionCallIntent]:
+    ):
         """
         Given a chat completion message, extract the function calls from it.
         Args:
             chat_completion_message (ChatCompletionMessage): The chat completion message.
-        Returns:
-            List[FunctionCallIntent]: A list of function calls.
         """
         result = []
         tool_calls = chat_completion_message.tool_calls
@@ -108,19 +106,7 @@ class OpenaiModel(Model):
 
         call: ChatCompletionMessageToolCall
         for call in tool_calls:
-            called_func: OpenaiFunction = call.function
-            func_name = called_func.name
-            func_args_str = called_func.arguments
-            # maps from arg name to arg value
-            if func_args_str == "":
-                args_dict = {}
-            else:
-                try:
-                    args_dict = json.loads(func_args_str, strict=False)
-                except json.decoder.JSONDecodeError:
-                    args_dict = {}
-            func_call_intent = FunctionCallIntent(func_name, args_dict, called_func)
-            result.append(func_call_intent)
+            result.append(call)
 
         return result
 
