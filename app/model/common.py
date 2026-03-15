@@ -2,6 +2,7 @@ import os
 import sys
 from abc import ABC, abstractmethod
 from typing import Any, Literal
+from loguru import logger
 
 import litellm
 from litellm import cost_per_token
@@ -475,6 +476,7 @@ SELECTED_MODEL: Model
 
 
 def set_model(model_name: str):
+    logger.info(f"Setting model to {model_name}")
     global SELECTED_MODEL
     if model_name not in MODEL_HUB and not model_name.startswith("litellm-generic-"):
         print(f"Invalid model name: {model_name}")
