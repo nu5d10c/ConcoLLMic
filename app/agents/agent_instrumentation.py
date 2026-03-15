@@ -446,7 +446,7 @@ class InstrumentationAgent:
                 msg_thread.to_msg(),
                 temperature=INSTRUMENTATION_TEMPERATURE,
                 tools=available_tools,
-                tool_choice="any" if available_tools else "auto",
+                tool_choice="required" if available_tools else "auto",
             )
 
             usage += call_usage
