@@ -11,6 +11,7 @@ from typing import Any
 
 from anthropic import Anthropic
 from loguru import logger
+import tiktoken
 
 PROJECT_DIR = ""
 CONCOLIC_EXECUTION_START_TIME: None | float = None
@@ -1146,9 +1147,5 @@ def estimate_text_token(
     """
     Estimate the number of tokens in a text.
     """
-    client = Anthropic()
-
-    count = client.beta.messages.count_tokens(
-        model=model, messages=[{"role": "user", "content": text}]
-    )
-    return count.input_tokens
+    enc = tiktoken.get_encoding("o200k_base")
+    return len(enc.encode(text))
